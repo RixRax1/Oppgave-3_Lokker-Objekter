@@ -264,15 +264,43 @@ Jeg har lagt til noen testvariabler for å sjekke funksjonen din.
 
 ******************************************************************************/
 
-const greetings = [
-  "Hello, how are you today?",
-  "Diciamo ciao prima di andare!",
-  "Salut, ça va bien?",
-  "Kannst du mich hören? Hallo!",
-  "Hva er regex?",
-  "Nos saludamos con un alegre hola.",
-  "Ona pomachała i powiedziała cześć z uśmiechem.",
-  "Good afternoon gentlemen!",
-];
+// const greetings = [
+//   "Hello, how are you today?",
+//   "Diciamo ciao prima di andare!",
+//   "Salut, ça va bien?",
+//   "Kannst du mich hören? Hallo!",
+//   "Hva er regex?",
+//   "Nos saludamos con un alegre hola.",
+//   "Ona pomachała i powiedziała cześć z uśmiechem.",
+//   "Good afternoon gentlemen!",
+// ];
 
 // Skriv koden for oppgave 5 her
+
+function helloChecker(text) {
+  // skal koble hallo til riktig språk
+  const greetings = {
+    hello: "engelsk",
+    ciao: "italiensk",
+    salut: "fransk",
+    hallo: "tysk",
+    hola: "spansk",
+    czezc: "polsk",
+  };
+
+  // gjør text som er skrevet inn til små bokstaver, fjerner mellomrom og deler teksten ved mellomrom
+  // slik at man kan gå igjennom hele setningen som er skrevet for å finne treff.
+  const words = text.toLowerCase().trim().split(" ");
+
+  // en for of loop som går igjennom teksten for å se om det blir treff.
+  for (let word of words) {
+    for (let greeting in greetings) {
+      if (word === greeting) {
+        return `Hallo oppdaget på ${greetings[greeting]}`;
+      }
+    }
+  }
+  return "Ingen Hello oppdaget";
+}
+
+console.log(helloChecker("Nos saludamos con un alegre hola"));
