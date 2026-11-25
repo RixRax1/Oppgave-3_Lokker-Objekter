@@ -90,7 +90,37 @@ let combinedAge = 0;
 
 // Skriv koden for oppgave 1 her
 
+for (let person of people) {
+  if (person.name === "Otto") {
+    continue; // går videre til neste loop.
+  }
+
+  // ternary for å sjekke om male er true eller false. Hvis true blir title satt til "Mr." hvis false "Ms."
+  person.title = person.male ? "Mr." : "Ms.";
+
+  // en random index mellom 0 og cities lengde.
+  const ranIndex = Math.floor(Math.random() * cities.length);
+  // legger til en random city.
+  person.city = cities[ranIndex];
+
+  // Øker alderen med 2.
+  person.age += 2;
+
+  // legger til et element i starten på et Array.
+  person.hobbies.unshift("coding");
+
+  combinedAge += person.age;
+}
+
+console.log(people);
+console.log(combinedAge);
+
 let averageAge = 0;
+
+// deler combined aged med antall people minus 1 da otto blir hoppet over.
+averageAge = combinedAge / (people.length - 1);
+
+console.log(averageAge);
 
 /******************************************************************************
 2.
@@ -113,6 +143,21 @@ diceRoller(5, 20) skal returnere et array med 5 tilfeldige tall fra 1-20.
 ******************************************************************************/
 
 // Skriv koden for oppgave 2 her
+
+function diceRoller(numberOfDice, sides = 6) {
+  const results = [];
+
+  // en loop som kjører antall numberOfDice og genererer et random nummer mellom 1 til sides.
+  for (let i = 0; i < numberOfDice; i++) {
+    const ranNum = Math.floor(Math.random() * sides) + 1;
+    results.push(ranNum);
+  }
+  return results;
+}
+
+console.log(diceRoller(4));
+console.log(diceRoller(6));
+console.log(diceRoller(4, 20));
 
 /******************************************************************************
 3.
