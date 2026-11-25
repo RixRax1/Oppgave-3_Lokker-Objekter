@@ -186,6 +186,24 @@ skal returnere:
 
 // Skriv koden for oppgave 3 her
 
+function cleanText(words) {
+  // her skal words samles etter de har blitt cleaned.
+  const cleanedWords = [];
+
+  for (let word of words) {
+    // fjerner først mellomrom og gjør bokstavene til små bokstaver.
+    const cleanedWord = word.trim().toLowerCase();
+    // pusher word til cleanedWords
+    cleanedWords.push(cleanedWord);
+  }
+  // legger til mellomrom.
+  return cleanedWords.join(" ");
+}
+
+console.log(
+  cleanText([" thIS", "teXt  ", " nEeds ", "to", "BE", "cleANED   ", " Up"]),
+);
+
 /******************************************************************************
 4.
 
